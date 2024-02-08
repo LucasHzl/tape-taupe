@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #9CC19D;
+}
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 150px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    background: #755632;
+    border-radius: 25px;
+}
+
+h1 {
+    font-family: 'Dokdo', system-ui;
+    font-size: 6rem;
+    color: #F3DF75;
+}
+
+
+.menu {
+    border: none;
+    border-radius: 15px;
+    background-color: #738D3A;
+    height: 80px;
+    width: 80px;
+    transition-duration: 0.4s;
+}
+
+.menu:hover {
+    background-color: #4D4640;
+}
+
+main {
+}
+
+.info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 80px;
+}
+
+.pseudo {
+    font-family: 'Dokdo', system-ui;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    color: #DE6B6B;
+    border-radius: 20px;
+    width: 50%;
+    height: 70px;
+    font-size: 38px;
+}
+
+.score {
+    font-family: 'Dokdo', system-ui;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    color: #DE6B6B;
+    border-radius: 20px;
+    width: 20%;
+    height: 70px;
+    font-size: 38px;
+}
+
+.game {
+    background-color: #69A66B;
+    height: 620px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 0;
+}
+
+.playable {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.startButton {
+    font-size: 32px;
+    border: none;
+    font-family: 'Dokdo', system-ui;
+    text-transform: uppercase;
+    background-color: #51D856;
+    border-radius: 50%;
+    padding: 30px;
+    transition-duration: 0.4s;
+}
+
+.startButton:hover {
+    background-color: #4D4640;
+}
+
+.resetButton {
+    font-size: 32px;
+    border: none;
+    font-family: 'Dokdo', system-ui;
+    text-transform: uppercase;
+    background-color: #C12222;
+    border-radius: 50%;
+    padding: 30px;
+    transition-duration: 0.4s;
+}
+
+.resetButton:hover {
+    background-color: #4D4640;
+}
+
+.timer {
+    font-family: 'Dokdo', system-ui;
+    font-size: 38px;
+    display: flex;
+    color: #DE6B6B;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    border-radius: 50px;
+    height: 80px;
+    width: 150px;
+}
+
+.moleBurrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4D4640;
+    border-radius: 50%;
+    height: 20%;
+    width: 30%;
+    z-index: 1;
+}
+
+.mole {
+    background-color: #956940;
+    width: 40%;
+    height: 90%;
+    margin-bottom: 70px;
+    border-radius: 40% 40% 0% 0%;
+}
+
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+
+.leaderBoard {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 80px;
+}
+
+.leaderBoardTitle {
+    font-family: 'Dokdo', system-ui;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    color: #DE6B6B;
+    border-radius: 20px;
+    width: 45%;
+    height: 70px;
+    font-size: 38px;
+}
+
+.leaderBoardArray {
+    background-color: #B5B76C;
+    height: 700px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.containerPositionLeaderBoard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 15%;
+}
+
+.titlePositionLeaderBoard {
+    width: 100%;
+    height: 80px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    font-family: 'Dokdo', system-ui;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.positionLeaderBoard {
+    width: 100%;
+    height: 80px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    font-family: 'Dokdo', system-ui;
+}
+
+.containerPseudoLeaderBoard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+}
+
+.titlePseudoLeaderBoard {
+    width: 100%;
+    height: 80px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    font-family: 'Dokdo', system-ui;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.pseudoLeaderBoard {
+    width: 100%;
+    height: 80px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    font-family: 'Dokdo', system-ui;
+}
+
+.containerScoreLeaderBoard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 20%;
+}
+
+.titleScoreLeaderBoard {
+    width: 100%;
+    height: 80px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    font-family: 'Dokdo', system-ui;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.scoreLeaderBoard {
+    width: 100%;
+    height: 80px;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    font-family: 'Dokdo', system-ui;
+}
+
+@media only screen and (min-width: 481px) {
+    h1 {
+        font-size: 4rem;
+    }
+    h2, .pseudo, .score {
+        font-size: 2rem;
+    }
+    .titlePositionLeaderBoard, .titlePseudoLeaderBoard, .titleScoreLeaderBoard {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 678px) {
+    h1 {
+        font-size: 6rem;
+    }
+    h2, .pseudo, .score {
+        font-size: 3rem;
+    }
+    .titlePositionLeaderBoard, .titlePseudoLeaderBoard, .titleScoreLeaderBoard {
+        font-size: 2.5rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    h1 {
+        font-size: 8rem;
+    }
+    h2, .pseudo, .score {
+        font-size: 3.5rem;
+    }
+    .titlePositionLeaderBoard, .titlePseudoLeaderBoard, .titleScoreLeaderBoard {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    h1 {
+        font-size: 9rem;
+    }
+    h2, .pseudo, .score {
+        font-size: 4rem;
+    }
+    .titlePositionLeaderBoard, .titlePseudoLeaderBoard, .titleScoreLeaderBoard {
+        font-size: 3.5rem;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    h1 {
+        font-size: 10rem;
+    }
+    h2, .pseudo, .score {
+        font-size: 4.5rem;
+    }
+    .titlePositionLeaderBoard, .titlePseudoLeaderBoard, .titleScoreLeaderBoard {
+        font-size: 4rem;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    h1 {
+        font-size: 11rem;
+    }
+    h2, .pseudo, .score {
+        font-size: 5rem;
+    }
+    .titlePositionLeaderBoard, .titlePseudoLeaderBoard, .titleScoreLeaderBoard {
+        font-size: 4.5rem;
+    }
+}
+
+/*Bloquer taille max du pseudo et score à partir de 1024px
+Faire responsive de la partie taupes*/
