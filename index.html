@@ -28,43 +28,65 @@
     </header>
     <main>
       <section class="info">
-        <div class="pseudo">BananeFlambee78</div>
+        <input class="pseudoInput" id="pseudoInput" type="text" name="pseudo" maxlength="15">
+        <button class="submitPseudo" id="submitPseudo"></button>
         <div class="score">108</div>
       </section>
       <section class="game">
-        <div class="moleBurrow">
-          <div class="mole"></div>
-        </div>
-        <div class="moleBurrow">
-          <div class="mole"></div>
-        </div>
-        <div class="moleBurrow">
-          <div class="mole"></div>
-        </div>
-        <div class="moleBurrow">
-          <div class="mole"></div>
-        </div>
-        <div class="moleBurrow">
-          <div class="mole"></div>
-        </div>
-        <div class="moleBurrow">
-          <div class="mole"></div>
-        </div>
-        <div class="moleBurrow">
-          <div class="mole"></div>
-        </div>
-        <div class="moleBurrow">
-          <div class="mole"></div>
-        </div>
-        <div class="moleBurrow">
-          <div class="mole"></div>
+        <div class="gameArea">
+          <div class="containerMole">
+            <img src="/assets/moleBurrow.png" class="moleBurrow"/>
+            <img src="/assets/mole.png" class="mole" id="mole"/>
+          </div>
+
+          <div class="containerMole">
+            <img src="/assets/moleBurrow.png" class="moleBurrow"/>
+            <img src="/assets/mole.png" class="mole" id="mole"/>
+          </div>
+
+          <div class="containerMole">
+            <img src="/assets/moleBurrow.png" class="moleBurrow"/>
+            <img src="/assets/mole.png" class="mole" id="mole"/>
+          </div>
+
+          <div class="containerMole">
+            <img src="/assets/moleBurrow.png" class="moleBurrow"/>
+            <img src="/assets/mole.png" class="mole" id="mole"/>
+          </div>
+
+          <div class="containerMole">
+            <img src="/assets/moleBurrow.png" class="moleBurrow"/>
+            <img src="/assets/mole.png" class="mole" id="mole"/>
+          </div>
+
+          <div class="containerMole">
+            <img src="/assets/moleBurrow.png" class="moleBurrow"/>
+            <img src="/assets/mole.png" class="mole" id="mole"/>
+          </div>
+
+          <div class="containerMole">
+            <img src="/assets/moleBurrow.png" class="moleBurrow"/>
+            <img src="/assets/mole.png" class="mole" id="mole"/>
+          </div>
+
+          <div class="containerMole">
+            <img src="/assets/moleBurrow.png" class="moleBurrow"/>
+            <img src="/assets/mole.png" class="mole" id="mole"/>
+          </div>
+
+          <div class="containerMole">
+            <img src="/assets/moleBurrow.png" class="moleBurrow"/>
+            <img src="/assets/mole.png" class="mole" id="mole"/>
+          </div>
         </div>
       </section>
+
       <section class="playable">
-        <button class="startButton">start</button>
-        <button class="resetButton">reset</button>
-        <div class="timer">30s</div>
+        <button class="startButton" id="startButton">start</button>
+        <button class="resetButton" id="resetButton">reset</button>
+        <div class="timer" id="timer">30</div>
       </section>
     </main>
+    <script src="/script.js"></script>
   </body>
 </html>
