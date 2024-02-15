@@ -134,6 +134,7 @@ input {
     height: 130%;
     width: 130%;
     z-index: 3;
+    pointer-events: none;
 }
 
 .mole {
@@ -230,9 +231,10 @@ input {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    overflow-y: scroll;
 }
 
-.containerPositionLeaderBoard {
+#containerPositionLeaderBoard {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -268,7 +270,7 @@ p {
     font-size: 32px;
 }
 
-.containerPseudoLeaderBoard {
+#containerPseudoLeaderBoard {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -296,7 +298,7 @@ p {
     font-family: 'Dokdo', system-ui;
 }
 
-.containerScoreLeaderBoard {
+#containerScoreLeaderBoard {
     display: flex;
     flex-direction: column;
     gap: 10px;

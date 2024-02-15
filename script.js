@@ -1,67 +1,93 @@
-//Le jeu ne se lance pas tant que l'utilisateur n'a pas saisi de pseudo.
+//////////////////////////////GLOBAL VARIABLES//////////////////////////////
+let pseudo = document.getElementById('pseudoInput').value;
+let intervalId = null;
+let score = 0;
+let leaderBoard = [];
 
-//Il faut que le bouton start soit cliquable uniquement toutes les 30 sec ou après avoir cliqué sur le bouton reset.
+//Lorsqu'on rafraîchit la page, on vérifie si il y a déjà un leader board dans le local storage, si oui : on synchronise notre variable JS leaderBoard
+if (localStorage.getItem("gameLeaderBoard") != null) {
+    leaderBoard = JSON.parse(localStorage.getItem("gameLeaderBoard"));
+}
+////////////////////////////////////////////////////////////////////////////
 
-//Le bouton reset arrête la partie, le timer (en la remettant à 30s) et remet le score à 0.
+///////////////////////////////LOCAL STORAGE////////////////////////////////
+function storeData() {
+    let playerIndex = leaderBoard.findIndex(element => element.pseudo == pseudo);
+    console.log(playerIndex);
+    if (playerIndex == -1) {
+        //Dans le cas où le joueur n'existe pas.
+        leaderBoard.push({
+            pseudo : pseudo,
+            score : score,
+        })
+    } else {
+        //Dans le cas où le joueur existe déjà.
+        leaderBoard[playerIndex] = {
+            pseudo : pseudo,
+            score : score, 
+        }
+    }
 
-// lorsqu'on clique sur une taupe "sortie", alors le score augmente de 1pts.
+    updateLocalStorage();
+}
 
-//À la fin du temps, la partie s'arrête.
+function updateLocalStorage() {
+    console.log(leaderBoard);
+    localStorage.setItem("gameLeaderBoard", JSON.stringify(leaderBoard));
+}
+////////////////////////////////////////////////////////////////////////////
 
-//passer je sais plus quoi en parametre pour que les taupes qui disparaissaent soient connectés à celles déjà dehors.
-
-//Une fois la partie finie, récupérer le score et le pseudo, les associer ensemble et le mettre dans le leaderboard (local storage).
-
-//classer le leaderboard bar nombre de points 
-
-
-/////////////////////////////////PSEUDO/////////////////////////////////////
+//////////////////////////////////PSEUDO////////////////////////////////////
 submitPseudo.addEventListener("click", checkPseudo);
 
 function checkPseudo () {
-    let submitedPseudo = document.getElementById("pseudoInput").value;
-    if (submitedPseudo != "") {
+    pseudo = document.getElementById('pseudoInput').value;
+    if (pseudo != "") {
         alert("Le pseudo a bien été enregistré");
+
+        /*localStorage.setItem("pseudo", pseudo);
+
+        let pseudoGetter = localStorage.getItem("pseudo", pseudo);
+        document.getElementsByClassName('pseudoLeaderBoard').innerHTML = pseudoGetter;
+        console.log(pseudoGetter);*/
+
     } else {
         alert("Merci de saisir votre pseudo !")
     }
 }
 ////////////////////////////////////////////////////////////////////////////
 
-//////////////////////////////////SCORE/////////////////////////////////////
-mole = document.getElementById("mole");
+///////////////////////////////////SCORE////////////////////////////////////
+mole = document.querySelectorAll(".mole");
 
-mole.addEventListener("click", scoreUp);
+mole.forEach(element => {
+    element.addEventListener("click", scoreUp); 
+});
 
 function scoreUp() {
-    console.log("score +1");
+    score += 1;
+    document.getElementById('score').innerHTML = score;
 }
 ////////////////////////////////////////////////////////////////////////////
 
 
-//////////////////////////////////GAME//////////////////////////////////////
-function moleAppear () {
+///////////////////////////////////GAME/////////////////////////////////////
+function moleAppear() {
     const moles = document.getElementsByClassName('mole');
-    const randomNumber = Math.floor(Math.random() * 8) + 1
+    const numMoles = moles.length;
+    const randomNumber = Math.floor(Math.random() * numMoles);
     const randomMole = moles[randomNumber];
-    randomMole.style.display = "flex";
-}
 
-function moleDisapear () {
-    const moles = document.getElementsByClassName('mole');
-    const randomNumber = Math.floor(Math.random() * 8) + 1
-    const randomMole = moles[randomNumber];
-    randomMole.style.display = "none";
-}
+    randomMole.style.display = 'flex';
+    randomMole.addEventListener("click", killed);
 
+    function killed() {
+        randomMole.style.display = "none"
+    }
 
-function gameplay () {
-
-        moleAppear();
-        setInterval(moleAppear, 1000);
-
-        moleDisapear();
-        setInterval(moleDisapear, 600);
+    setTimeout(() => {
+        randomMole.style.display = 'none';
+    }, 1000);
 }
 ////////////////////////////////////////////////////////////////////////////
 
@@ -77,19 +103,42 @@ function countdown () {
     time = time <= 0 ? 0 : time -1;
 }
 
+function start() {
+    if(pseudo == "") {
+        alert("Merci de saisir votre pseudo !");
+        return;
+    }
 
-function start () {
+    if(intervalId != null) {
+        alert("Il y a déjà une partie en cours (spam pas stp)")
+        return;
+    }
 
-    gameplay()
+    countdown();
 
-    countdown()
-    setInterval(countdown, 1000)
+    document.getElementById('score').innerHTML = score;
+
+    moleAppear();
+    intervalId = setInterval(updateGameplay, 1000);
+
+    setTimeout(()=> {
+        reset();
+    }, 30000)
 }
 
+function updateGameplay() {
+    countdown() 
+    moleAppear()     
+}
 
-resetButton.addEventListener("click", restart);
+resetButton.addEventListener("click", reset);
 
-function restart() {
-    console.log("stop")
+function reset() {
+    time = 30;
+    timer.innerText = 30
+    clearInterval(intervalId);
+    intervalId = null;
+    storeData();
+    score = 0;
 }
 ////////////////////////////////////////////////////////////////////////////
