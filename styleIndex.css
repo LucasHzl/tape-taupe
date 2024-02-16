@@ -28,7 +28,7 @@ h1 {
 
 
 .menu {
-    background-image: url(/assets/podium.png);
+    background-image: url(./assets/podium.png);
     background-size: 60px;
     background-position-y: center;
     background-position-x:center ;
@@ -75,7 +75,7 @@ input {
 }
 
 .submitPseudo {
-    background-image: url(/assets/tick.png);
+    background-image: url(./assets/tick.png);
     background-size: 80px;
     background-position-y: center;
     background-position-x:center ;
