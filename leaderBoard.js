@@ -1,6 +1,5 @@
 //On récupère le leader board à partir du local storage
 let leaderBoard = JSON.parse(localStorage.getItem('gameLeaderBoard'));
-console.log(leaderBoard);
 //On récupères les containers
 let containerPosition = document.getElementById("containerPositionLeaderBoard");
 let containerPseudo = document.getElementById("containerPseudoLeaderBoard");
@@ -21,7 +20,6 @@ for (i=0; i<leaderBoard.length; i++) {
     let p = document.createElement("p");
     positionDiv.classList.add("positionLeaderBoard");
     positionDiv.appendChild(p);
-    console.log(p);
     p.innerText = i+1
 
     //Le pseudo du joueur

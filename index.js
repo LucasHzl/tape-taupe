@@ -13,7 +13,6 @@ if (localStorage.getItem("gameLeaderBoard") != null) {
 ///////////////////////////////LOCAL STORAGE////////////////////////////////
 function storeData() {
     let playerIndex = leaderBoard.findIndex(element => element.pseudo == pseudo);
-    console.log(playerIndex);
     if (playerIndex == -1) {
         //Dans le cas où le joueur n'existe pas.
         leaderBoard.push({
@@ -32,7 +31,6 @@ function storeData() {
 }
 
 function updateLocalStorage() {
-    console.log(leaderBoard);
     localStorage.setItem("gameLeaderBoard", JSON.stringify(leaderBoard));
 }
 ////////////////////////////////////////////////////////////////////////////
@@ -44,13 +42,6 @@ function checkPseudo () {
     pseudo = document.getElementById('pseudoInput').value;
     if (pseudo != "") {
         alert("Le pseudo a bien été enregistré");
-
-        /*localStorage.setItem("pseudo", pseudo);
-
-        let pseudoGetter = localStorage.getItem("pseudo", pseudo);
-        document.getElementsByClassName('pseudoLeaderBoard').innerHTML = pseudoGetter;
-        console.log(pseudoGetter);*/
-
     } else {
         alert("Merci de saisir votre pseudo !")
     }
@@ -92,11 +83,11 @@ function moleAppear() {
 ////////////////////////////////////////////////////////////////////////////
 
 
-//////////////////////////////////TIMER/////////////////////////////////////
+//////////////////////////////////PLAYABLES/////////////////////////////////
 startButton.addEventListener("click", start);
 
 let timer = document.getElementById("timer");
-let time = 29;
+let time = 30;
 
 function countdown () {
     timer.innerText = time;
