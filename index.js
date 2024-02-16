@@ -26,7 +26,6 @@ function storeData() {
             score : score, 
         }
     }
-
     updateLocalStorage();
 }
 
@@ -64,21 +63,28 @@ function scoreUp() {
 
 ///////////////////////////////////GAME/////////////////////////////////////
 function moleAppear() {
+    if (time <= 0) {
+        return;
+    }
+
     const moles = document.getElementsByClassName('mole');
     const numMoles = moles.length;
     const randomNumber = Math.floor(Math.random() * numMoles);
     const randomMole = moles[randomNumber];
-
     randomMole.style.display = 'flex';
     randomMole.addEventListener("click", killed);
 
     function killed() {
-        randomMole.style.display = "none"
+        randomMole.style.display = "none";
     }
+
+    let displayDuration = 1000;
+    displayDuration -= Math.floor(score / 5) * 100;
+    displayDuration = Math.max(displayDuration, 400);
 
     setTimeout(() => {
         randomMole.style.display = 'none';
-    }, 1000);
+    }, displayDuration);
 }
 ////////////////////////////////////////////////////////////////////////////
 
